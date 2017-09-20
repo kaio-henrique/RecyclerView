@@ -1,2 +1,2 @@
 # RecyclerView
-RecyclerView consuming datas with Retrofit 2
+RecyclerView consuming data with Retrofit 2
