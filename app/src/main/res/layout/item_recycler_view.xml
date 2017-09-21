@@ -11,7 +11,6 @@
         android:paddingTop="14dp"
         android:paddingBottom="16dp"
         android:layout_marginTop="20dp"
-        android:layout_alignParentStart="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -21,56 +20,44 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/labelMatric"
+                android:id="@+id/tvNome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Matricula:"
-                android:textStyle="bold"/>
+                android:paddingLeft="12dp"
+                android:textStyle="bold"
+                android:text="Nome" />
+
+
+        </TableRow>
+
+
+        <TableRow
+            android:id="@+id/row2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/tvChamado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="11dp"
+                android:text="Chamado" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:id="@+id/tvMatric"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="12dp"
-                android:text="Matricula"
-                android:textColor="#808183" />
-
-            <TextView
-                android:id="@+id/labelChamado"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:text="Chamado:"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvChamado"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="12dp"
-                android:text="chamado" />
-
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/row2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp">
-
-            <TextView
-                android:id="@+id/labelNome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nome:"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvNome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="12dp"
-                android:text="Nome" />
+                android:text="Matricula" />
 
         </TableRow>
     </TableLayout>

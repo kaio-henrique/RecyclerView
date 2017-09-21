@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.clear();
         adapter.addAll(listUsuarios);
         swipeContainer.setRefreshing(false);
-        getUsuarioList();
+        initViews();
     }
 
     private void initViews() {
