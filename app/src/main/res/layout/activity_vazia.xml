@@ -5,15 +5,24 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvTextEmpty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="176dp"
-        android:paddingRight="176dp"
-        android:paddingTop="176dp"
-        android:paddingBottom="176dp"
-        android:textSize="30pt"
-        android:text="\uF0C0"/>
+    <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/swipeContainerEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/tvTextEmpty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="176dp"
+            android:paddingRight="176dp"
+            android:paddingTop="176dp"
+            android:paddingBottom="176dp"
+            android:textSize="30pt"
+            android:text="\uF0C0"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </RelativeLayout>
