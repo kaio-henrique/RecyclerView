@@ -1,6 +1,7 @@
 package br.com.geq.ggti.recyclerview;
 
 import android.app.ProgressDialog;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -34,27 +36,29 @@ public class MainActivity extends AppCompatActivity {
     private Usuario usuario;
     ProgressDialog progressDialog;
     private LinearLayoutManager layoutManager;
-    private SwipeRefreshLayout swipeContainer;
-
+    private SwipeRefreshLayout swipeContainer, swipeContainerEmpty;
+    private TextView tvTextEmpty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        listUsuarios = new ArrayList<>();
+
         if(listUsuarios == null){
             setContentView(R.layout.activity_vazia);
 
-            recyclerView = (RecyclerView) findViewById(R.id.recycler_view_vazia);
-            layoutManager = new LinearLayoutManager(MainActivity.this);
+            tvTextEmpty = (TextView) findViewById(R.id.tvTextEmpty);
 
-            recyclerView = (RecyclerView) findViewById(R.id.recycler_view_vazia);
+            Typeface fontFamily = Typeface.createFromAsset(getAssets(), "fonts/fontawesome-webfont.ttf");
+            tvTextEmpty.setTypeface(fontFamily);
 
-            recyclerView.setLayoutManager(layoutManager);
-            adapter = new UsuarioAdapter(listUsuarios);
-            recyclerView.setAdapter(adapter);
-            Snackbar.make(recyclerView, "Nenhum item carregado!", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null)
+            Toast.makeText(getApplicationContext(), "Nenhum item carregado!", Toast.LENGTH_LONG)
                     .show();
+
+            /*Snackbar.make(recyclerView, "Nenhum item carregado!", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null)
+                    .show();*/
         }else {
             setContentView(R.layout.activity_main);
 

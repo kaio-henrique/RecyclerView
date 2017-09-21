@@ -1,5 +1,6 @@
 package br.com.geq.ggti.recyclerview.adapter.holder;
 
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -13,9 +14,8 @@ import br.com.geq.ggti.recyclerview.service.OnClickListenerHack;
  * Created by 750371415 on 20/09/2017.
  */
 
-public class UsuarioHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class UsuarioHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-    public static OnClickListenerHack onClickListenerHack;
     public TextView matric, nome, chamado;
 
     public UsuarioHolder(View view) {
@@ -26,10 +26,11 @@ public class UsuarioHolder extends RecyclerView.ViewHolder implements View.OnCli
         matric = (TextView) view.findViewById(R.id.tvMatric);
         nome = (TextView) view.findViewById(R.id.tvNome);
         chamado = (TextView) view.findViewById(R.id.tvChamado);
+
     }
 
     @Override
     public void onClick(View v) {
-        onClickListenerHack.onCustomClickListener(getLayoutPosition());
+        Snackbar.make(v, "Selecionou " + nome.getText(),  Snackbar.LENGTH_LONG).show();
     }
 }

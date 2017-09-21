@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.List;
 import br.com.geq.ggti.recyclerview.R;
 import br.com.geq.ggti.recyclerview.adapter.holder.UsuarioHolder;
 import br.com.geq.ggti.recyclerview.model.Usuario;
+import br.com.geq.ggti.recyclerview.service.OnClickListenerHack;
 
 /**
  * Created by 750371415 on 20/09/2017.
@@ -22,6 +24,7 @@ import br.com.geq.ggti.recyclerview.model.Usuario;
 public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioHolder> {
 
     private List<Usuario> listUsuario;
+    private OnClickListenerHack listenerHack;
 
     public UsuarioAdapter(List<Usuario> listUsuario){
         this.listUsuario = listUsuario;
@@ -30,19 +33,9 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioHolder> {
     @Override
     public UsuarioHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        UsuarioHolder usrHolder = null;
-
-        if (listUsuario == null){
-            View viewVazia = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_recycler_view_vazia, parent, false);
-            usrHolder = new UsuarioHolder(viewVazia);
-
-        }else{
-            View viewPreenchida = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_recycler_view, parent, false);
-            usrHolder = new UsuarioHolder(viewPreenchida);
-
-        }
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_recycler_view, parent, false);
+        UsuarioHolder usrHolder = new UsuarioHolder(view);
 
         return usrHolder;
     }
