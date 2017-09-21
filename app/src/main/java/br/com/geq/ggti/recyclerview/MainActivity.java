@@ -42,12 +42,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tvTextEmpty = (TextView) findViewById(R.id.tvTextEmpty);
-
-         fontFamily = Typeface.createFromAsset(getAssets(), "fonts/fontawesome-webfont.ttf");
-
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
         swipeContainerEmpty = (SwipeRefreshLayout) findViewById(R.id.swipeContainerEmpty);
+
+        if(swipeContainerEmpty != null){
+            swipeContainerEmpty.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    fetchTimelineAsync(0);
+                }
+            });
+        }
 
 
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -56,14 +61,6 @@ public class MainActivity extends AppCompatActivity {
                 fetchTimelineAsync(0);
             }
         });
-
-        swipeContainerEmpty.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                fetchTimelineAsync(0);
-            }
-        });
-
 
         initViews();
 
@@ -98,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (listUsuarios.size() == 0){
             setContentView(R.layout.activity_vazia);
+            tvTextEmpty = (TextView) findViewById(R.id.tvTextEmpty);
+            fontFamily = Typeface.createFromAsset(getAssets(), "fonts/fontawesome-webfont.ttf");
             tvTextEmpty.setTypeface(fontFamily);
             Toast.makeText(getApplicationContext(), "Não há atestados a serem listados!", Toast.LENGTH_LONG).show();
             swipeContainerEmpty.setRefreshing(false);
@@ -118,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
         progressDialog.show();
 
         getUsuarioList();
+
     }
 
     private void getUsuarioList() {
