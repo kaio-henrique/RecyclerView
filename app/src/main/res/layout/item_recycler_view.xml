@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?android:attr/selectableItemBackground">
@@ -13,7 +12,7 @@
         android:paddingBottom="16dp"
         android:layout_marginTop="20dp"
         android:layout_alignParentStart="true"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TableRow
@@ -21,12 +20,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <com.beardedhen.androidbootstrap.BootstrapLabel
+            <TextView
                 android:id="@+id/labelMatric"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Matricula:"
-                app:bootstrapBrand="primary" />
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/tvMatric"
@@ -36,13 +35,13 @@
                 android:text="Matricula"
                 android:textColor="#808183" />
 
-            <com.beardedhen.androidbootstrap.BootstrapLabel
+            <TextView
                 android:id="@+id/labelChamado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:text="Chamado:"
-                app:bootstrapBrand="primary" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvChamado"
@@ -59,12 +58,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp">
 
-            <com.beardedhen.androidbootstrap.BootstrapLabel
+            <TextView
                 android:id="@+id/labelNome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nome:"
-                app:bootstrapBrand="primary" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvNome"
@@ -83,4 +82,5 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="3dp"
         android:background="@color/bootstrap_gray_light" />
+
 </RelativeLayout>

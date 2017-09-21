@@ -12,10 +12,7 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import br.com.geq.ggti.recyclerview.adapter.UsuarioAdapter;
