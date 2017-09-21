@@ -12,10 +12,7 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import br.com.geq.ggti.recyclerview.adapter.UsuarioAdapter;
@@ -38,48 +35,78 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayoutManager layoutManager;
     private SwipeRefreshLayout swipeContainer, swipeContainerEmpty;
     private TextView tvTextEmpty;
+    private Typeface fontFamily;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        listUsuarios = new ArrayList<>();
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+        swipeContainerEmpty = (SwipeRefreshLayout) findViewById(R.id.swipeContainerEmpty);
 
-        if(listUsuarios == null){
+        if(swipeContainerEmpty != null){
+            swipeContainerEmpty.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    fetchTimelineAsync(0);
+                }
+            });
+        }
+
+
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                fetchTimelineAsync(0);
+            }
+        });
+
+        initViews();
+
+        /*if(listUsuarios.size() == 0 ){
             setContentView(R.layout.activity_vazia);
+
+            swipeContainerEmpty = (SwipeRefreshLayout) findViewById(R.id.swipeContainerEmpty);
 
             tvTextEmpty = (TextView) findViewById(R.id.tvTextEmpty);
 
             Typeface fontFamily = Typeface.createFromAsset(getAssets(), "fonts/fontawesome-webfont.ttf");
             tvTextEmpty.setTypeface(fontFamily);
 
-            Toast.makeText(getApplicationContext(), "Nenhum item carregado!", Toast.LENGTH_LONG)
-                    .show();
+            Toast.makeText(getApplicationContext(), "Não há atestados a serem listados!", Toast.LENGTH_LONG).show();
 
-            /*Snackbar.make(recyclerView, "Nenhum item carregado!", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null)
-                    .show();*/
-        }else {
-            setContentView(R.layout.activity_main);
-
-            swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
-            swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            swipeContainerEmpty.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                 @Override
                 public void onRefresh() {
                     fetchTimelineAsync(0);
                 }
             });
 
-            initViews();
-        }
+        }else {
+            setContentView(R.layout.activity_main);
+
+
+        }*/
 
     }
 
     public void fetchTimelineAsync(int page){
-        adapter.clear();
-        adapter.addAll(listUsuarios);
-        swipeContainer.setRefreshing(false);
-        getUsuarioList();
+
+        if (listUsuarios.size() == 0){
+            setContentView(R.layout.activity_vazia);
+            tvTextEmpty = (TextView) findViewById(R.id.tvTextEmpty);
+            fontFamily = Typeface.createFromAsset(getAssets(), "fonts/fontawesome-webfont.ttf");
+            tvTextEmpty.setTypeface(fontFamily);
+            Toast.makeText(getApplicationContext(), "Não há atestados a serem listados!", Toast.LENGTH_LONG).show();
+            swipeContainerEmpty.setRefreshing(false);
+        }else{
+            setContentView(R.layout.activity_main);
+            adapter.clear();
+            adapter.addAll(listUsuarios);
+            swipeContainer.setRefreshing(false);
+            initViews();
+        }
     }
 
     private void initViews() {
@@ -90,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
         progressDialog.show();
 
         getUsuarioList();
+
     }
 
     private void getUsuarioList() {
@@ -119,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<List<Usuario>> call, Throwable t) {
                     Log.d(TAG, "Erro ao processar dado!");
-                    Toast.makeText(getApplicationContext(), "Não há dados a serem processados!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Erro ao carregar dados!", Toast.LENGTH_LONG).show();
                     /*Snackbar.make(recyclerView, t.getMessage(), Snackbar.LENGTH_LONG)
                             .setAction("Action", null)
                             .show();*/
