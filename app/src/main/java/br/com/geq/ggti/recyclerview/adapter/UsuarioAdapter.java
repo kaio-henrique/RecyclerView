@@ -71,7 +71,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioHolder> {
     }
 
     public void clear(){
-        listUsuario.clear();
+        listUsuario.get(0);
         notifyDataSetChanged();
     }
 
