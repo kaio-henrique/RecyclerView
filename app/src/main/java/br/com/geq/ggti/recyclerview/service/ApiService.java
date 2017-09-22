@@ -5,7 +5,6 @@ import java.util.List;
 import br.com.geq.ggti.recyclerview.model.Usuario;
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 
 /**
  * Created by 750371415 on 20/09/2017.

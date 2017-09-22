@@ -30,9 +30,8 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioHolder> {
 
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_recycler_view, parent, false);
-        UsuarioHolder usrHolder = new UsuarioHolder(view);
+        return new UsuarioHolder(view);
 
-        return usrHolder;
     }
 
     @Override
@@ -40,7 +39,12 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioHolder> {
 
         holder.matric.setText(listUsuario.get(position).getMatricula());
         holder.nome.setText(listUsuario.get(position).getNome().toUpperCase());
-        holder.chamado.setText(listUsuario.get(position).getN_chamado());
+        holder.chamado.setText("#" + listUsuario.get(position).getN_chamado());
+        holder.dataInicio.setText(listUsuario.get(position).getData_inicio());
+        holder.resp.setText(listUsuario.get(position).getTags().getResp());
+        holder.qtdDias.setText(listUsuario.get(position).getTags().getQtd_dias());
+        holder.tipo.setText(listUsuario.get(position).getTags().getTipo());
+        holder.status.setText(listUsuario.get(position).getTags().getStatus());
 
         holder.itemClickedListener(new OnItemClickListenerHack() {
             @Override
