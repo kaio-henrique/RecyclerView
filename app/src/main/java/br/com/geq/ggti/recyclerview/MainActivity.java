@@ -49,7 +49,17 @@ public class MainActivity extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        getUsuarioList();
+        new Thread(){
+            @Override
+            public void run(){
+                try{
+                    sleep(1500);
+                    getUsuarioList();
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }.start();
     }
 
     private void getUsuarioList() {
@@ -119,9 +129,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        initViews();
+    }
+
     public void fetchTimelineAsync(int page){
 
         if(listUsuarios == null || listUsuarios.size() == 0){
+            swipeContainerEmpty.setRefreshing(false);
             initViews();
         }else{
             adapter.clear();

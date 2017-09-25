@@ -129,137 +129,14 @@
         android:layout_marginTop="13dp"
         android:background="@color/bootstrap_gray_light" />
 
+    <ImageView
+        android:id="@+id/ivArrowRight"
+        android:layout_above="@+id/tab2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="14dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/tab1"
+        android:src="@drawable/ic_keyboard_arrow_right_silver_24dp" />
+
 </RelativeLayout>
-<!--
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground">
-
-    <TableLayout
-        android:id="@+id/tab1"
-        android:paddingLeft="14dp"
-        android:paddingRight="14dp"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TableRow
-            android:id="@+id/row1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/tvMatric"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="Matricula" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:textStyle="bold"
-                android:text="-" />
-
-            <TextView
-                android:id="@+id/tvNome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nome"
-                android:textStyle="bold" />
-
-        </TableRow>
-    </TableLayout>
-
-    <TableLayout
-        android:id="@+id/tab2"
-        android:layout_below="@+id/tab1"
-        android:paddingLeft="14dp"
-        android:paddingRight="14dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TableRow
-            android:id="@+id/row2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp">
-
-            <TextView
-                android:id="@+id/tvChamado"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Chamado" />
-
-            <TextView
-                android:id="@+id/labelDataInicio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="Início: " />
-
-            <TextView
-                android:id="@+id/tvDataInicio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
-                android:text="Data Inicio" />
-
-        </TableRow>
-    </TableLayout>
-
-    <TableLayout
-        android:id="@+id/tab3"
-        android:layout_below="@+id/tab2"
-        android:paddingLeft="14dp"
-        android:paddingRight="14dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp">
-
-            <TextView
-                android:id="@+id/tvResp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Resp." />
-
-            <TextView
-                android:id="@+id/tvQtdDias"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="Qtd. Dias" />
-
-            <TextView
-                android:id="@+id/tvTipo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="Tipo" />
-
-            <TextView
-                android:id="@+id/tvStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="Status" />
-        </TableRow>
-    </TableLayout>
-
-    <View
-        android:layout_below="@+id/tab3"
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="13dp"
-        android:background="@color/bootstrap_gray_light" />
-
-</RelativeLayout>-->
